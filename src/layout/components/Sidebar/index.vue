@@ -1,3 +1,10 @@
+<!--
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:21
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-09-30 18:18:30
+ * @Description: file content
+-->
 <template>
   <div :class="{'has-logo':showLogo}">
     <logo v-if="showLogo" :collapse="isCollapse" />
@@ -5,10 +12,7 @@
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
-        :background-color="variables.menuBg"
-        :text-color="variables.menuText"
         :unique-opened="false"
-        :active-text-color="variables.menuActiveText"
         :collapse-transition="false"
         mode="vertical"
       >
@@ -31,6 +35,9 @@ export default {
       'permission_routes',
       'sidebar'
     ]),
+    //     :background-color="variables.menuBg"
+    // :text-color="variables.menuText"
+    // :active-text-color="variables.menuActiveText"
     activeMenu() {
       const route = this.$route
       const { meta, path } = route
