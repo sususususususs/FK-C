@@ -1,55 +1,42 @@
+<!--
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:21
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-09 17:16:50
+ * @Description: file content
+-->
 <template>
   <div class="dashboard-editor-container">
-    <github-corner class="github-corner" />
 
-    <panel-group @handleSetLineChartData="handleSetLineChartData" />
+    <div class="dashboard-usually">常用功能</div>
 
-    <el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
-      <line-chart :chart-data="lineChartData" />
-    </el-row>
-
-    <el-row :gutter="32">
-      <el-col :xs="24" :sm="24" :lg="8">
-        <div class="chart-wrapper">
-          <raddar-chart />
-        </div>
-      </el-col>
-      <el-col :xs="24" :sm="24" :lg="8">
-        <div class="chart-wrapper">
-          <pie-chart />
-        </div>
-      </el-col>
-      <el-col :xs="24" :sm="24" :lg="8">
-        <div class="chart-wrapper">
-          <bar-chart />
-        </div>
+    <el-row v-for="v in rows" :key="v" :gutter="20" class="mt-20">
+      <el-col v-for="item in cardArr.slice((v - 1) * 4, 4 * v)" :key="item.title" :span="6">
+        <cardList :title="item.title" :detail="item.detail" pic="" />
       </el-col>
     </el-row>
 
-    <el-row :gutter="8">
-      <el-col :xs="{span: 24}" :sm="{span: 24}" :md="{span: 24}" :lg="{span: 12}" :xl="{span: 12}" style="padding-right:8px;margin-bottom:30px;">
-        <transaction-table />
-      </el-col>
-      <el-col :xs="{span: 24}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
-        <todo-list />
-      </el-col>
-      <el-col :xs="{span: 24}" :sm="{span: 12}" :md="{span: 12}" :lg="{span: 6}" :xl="{span: 6}" style="margin-bottom:30px;">
-        <box-card />
+    <div class="dashboard-usually mt-20">未开通功能</div>
+
+    <el-row :gutter="20" class="mt-20">
+      <el-col :span="6">
+        <cardList title="--" detail="--" pic="" />
       </el-col>
     </el-row>
+
+    <div class="dashboard-usually mt-20">精选推荐</div>
+
+    <el-row :gutter="20" class="mt-20">
+      <el-col :span="6">
+        <cardList title="彗星来的那一夜" detail="玫瑰玫瑰我爱你" pic="" />
+      </el-col>
+    </el-row>
+
   </div>
 </template>
 
 <script>
-import GithubCorner from '@/components/GithubCorner'
-import PanelGroup from './components/PanelGroup'
-import LineChart from './components/LineChart'
-import RaddarChart from './components/RaddarChart'
-import PieChart from './components/PieChart'
-import BarChart from './components/BarChart'
-import TransactionTable from './components/TransactionTable'
-import TodoList from './components/TodoList'
-import BoxCard from './components/BoxCard'
+import cardList from './components/cardList'
 
 const lineChartData = {
   newVisitis: {
@@ -72,20 +59,72 @@ const lineChartData = {
 
 export default {
   name: 'DashboardAdmin',
-  components: {
-    GithubCorner,
-    PanelGroup,
-    LineChart,
-    RaddarChart,
-    PieChart,
-    BarChart,
-    TransactionTable,
-    TodoList,
-    BoxCard
-  },
+  components: { cardList },
   data() {
     return {
-      lineChartData: lineChartData.newVisitis
+      lineChartData: lineChartData.newVisitis,
+      cardArr: [
+        {
+          pic: '',
+          title: '撒网',
+          detail: '渔民日常工作：江上自拍'
+        },
+        {
+          pic: '',
+          title: '白头鞋老潮鞋店',
+          detail: '我可以踩在你的脸上亲球鞋吗'
+        },
+        {
+          pic: '',
+          title: '刘传单',
+          detail: '游泳健身了解一下？'
+        },
+        {
+          pic: '',
+          title: '捕鱼',
+          detail: '360°彩虹'
+        },
+        {
+          pic: '',
+          title: '白rapper',
+          detail: '你有这种渠道为什么不分享给我！'
+        },
+        {
+          pic: '',
+          title: '撒龙',
+          detail: '寻找棋子，两锅女鹅'
+        },
+        {
+          pic: '',
+          title: '林够够',
+          detail: '我的故事里没有你'
+        },
+        {
+          pic: '',
+          title: '白rap',
+          detail: '我一下就推开了！这是另外的价钱'
+        },
+        {
+          pic: '',
+          title: '魏公主',
+          detail: '我的美令人嫉妒让人羡慕遭人憎恶'
+        },
+        {
+          pic: '',
+          title: '国王',
+          detail: '我不是够了，我是够够了'
+        },
+        {
+          pic: '',
+          title: '张二副',
+          detail: '你们好不好不太重要'
+        }
+      ]
+    }
+  },
+  computed: {
+    rows() {
+      return Math.floor(this.cardArr.length / 4) + 1
     }
   },
   methods: {
@@ -98,27 +137,12 @@ export default {
 
 <style lang="scss" scoped>
 .dashboard-editor-container {
-  padding: 32px;
-  background-color: rgb(240, 242, 245);
   position: relative;
-
-  .github-corner {
-    position: absolute;
-    top: 0px;
-    border: 0;
-    right: 0;
-  }
-
-  .chart-wrapper {
-    background: #fff;
-    padding: 16px 16px 0;
-    margin-bottom: 32px;
-  }
 }
-
-@media (max-width:1024px) {
-  .chart-wrapper {
-    padding: 8px;
-  }
+.dashboard-usually {
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 700;
+  border-left: 3px solid #36a3f7;
 }
 </style>

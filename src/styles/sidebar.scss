@@ -8,16 +8,10 @@
   }
 
   .sidebar-container {
-    transition: width 0.28s;
-    box-shadow: 0 0 7px 0 #ddd;
+    // transition: width 0.28s;
+    // box-shadow: 0 0 7px 0 #ddd;
     width: $sideBarWidth !important;
     height: 100%;
-    position: fixed;
-    font-size: 0px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1001;
     overflow: hidden;
 
     // reset element-ui css
@@ -48,7 +42,6 @@
     }
 
     a {
-      display: inline-block;
       width: 100%;
       overflow: hidden;
     }

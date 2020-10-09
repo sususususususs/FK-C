@@ -1,0 +1,34 @@
+$title: #333;
+$edit: #626262;
+$borderline: #f1f1f1;
+$formInfo: #90909e;
+
+.font-sm {
+  font-size: 12px;
+}
+
+.font-md {
+  font-size: 14px;
+}
+
+.font-lg {
+  font-size: 18px;
+}
+
+.content-T {
+  color: $title !important;
+}
+
+.content-E {
+  color: $edit !important;
+}
+
+.content-F {
+  color: $formInfo !important;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+

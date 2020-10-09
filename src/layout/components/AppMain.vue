@@ -1,3 +1,10 @@
+<!--
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:21
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-09 16:37:41
+ * @Description: file content
+-->
 <template>
   <section class="app-main">
     <transition name="fade-transform" mode="out-in">
@@ -27,8 +34,11 @@ export default {
   /* 50= navbar  50  */
   min-height: calc(100vh - 50px);
   width: 100%;
+  background: #f0f2f5;
   position: relative;
   overflow: hidden;
+  padding: 20px;
+  min-height: 100%;
 }
 
 .fixed-header+.app-main {

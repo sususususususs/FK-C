@@ -1,21 +1,14 @@
 <template>
   <div class="navbar">
-    <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
+    <!-- <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
-    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" />
+    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" /> -->
 
     <div class="right-menu">
       <template v-if="device!=='mobile'">
-        <!-- <search id="header-search" class="right-menu-item" /> -->
-
-        <!-- <error-log class="errLog-container right-menu-item hover-effect" /> -->
-
-        <screenfull id="screenfull" class="right-menu-item hover-effect" />
-
-        <el-tooltip content="Global Size" effect="dark" placement="bottom">
-          <size-select id="size-select" class="right-menu-item hover-effect" />
+        <el-tooltip v-for="v in rightList" :key="v.icon" class="item" effect="dark" :content="v.content" placement="bottom">
+          <i :class="v.icon + ' my-icon'" />
         </el-tooltip>
-
       </template>
 
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
@@ -44,19 +37,35 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Breadcrumb from '@/components/Breadcrumb'
-import Hamburger from '@/components/Hamburger'
-import Screenfull from '@/components/Screenfull'
-import SizeSelect from '@/components/SizeSelect'
+// import Breadcrumb from '@/components/Breadcrumb'
+// import Hamburger from '@/components/Hamburger'
+// import Screenfull from '@/components/Screenfull'
+// import SizeSelect from '@/components/SizeSelect'
 // import ErrorLog from '@/components/ErrorLog'
 // import Search from '@/components/HeaderSearch'
 
 export default {
-  components: {
-    Breadcrumb,
-    Hamburger,
-    Screenfull,
-    SizeSelect
+  data() {
+    return {
+      rightList: [
+        {
+          icon: 'el-icon-bell',
+          content: '通知'
+        },
+        {
+          icon: 'el-icon-present',
+          content: '进入我的现金券'
+        },
+        {
+          icon: 'el-icon-s-shop',
+          content: '营销市场'
+        },
+        {
+          icon: 'el-icon-user',
+          content: '个人中心'
+        }
+      ]
+    }
   },
   computed: {
     ...mapGetters([
@@ -79,11 +88,12 @@ export default {
 
 <style lang="scss" scoped>
 .navbar {
-  height: 50px;
+  height: 100%;
   overflow: hidden;
   position: relative;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  // box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  border-bottom: 1px solid #ccc;
 
   .hamburger-container {
     line-height: 46px;
@@ -102,15 +112,11 @@ export default {
     float: left;
   }
 
-  .errLog-container {
-    display: inline-block;
-    vertical-align: top;
-  }
-
   .right-menu {
-    float: right;
     height: 100%;
-    line-height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 
     &:focus {
       outline: none;
@@ -157,6 +163,14 @@ export default {
         }
       }
     }
+  }
+  .my-icon {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 25px;
+    margin-right: 20px;
   }
 }
 </style>

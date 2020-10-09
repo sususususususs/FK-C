@@ -4,6 +4,9 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 @import './btn.scss';
+@import './instance.scss';
+@import './font.scss';
+
 
 body {
   height: 100%;
@@ -53,6 +56,10 @@ a:hover {
   text-decoration: none;
 }
 
+p {
+  margin: 0;
+}
+
 div:focus {
   outline: none;
 }
@@ -97,12 +104,15 @@ div:focus {
 }
 
 aside {
-  background: #eef1f6;
-  padding: 8px 24px;
-  margin-bottom: 20px;
-  border-radius: 2px;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  height: 100%;
+  z-index: 1000;
   display: block;
-  line-height: 32px;
   font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   color: #2c3e50;
@@ -188,4 +198,8 @@ aside {
 
 .multiselect--active {
   z-index: 1000 !important;
+}
+
+.dashboard-container {
+  height: 100%;
 }
