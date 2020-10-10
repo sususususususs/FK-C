@@ -1,3 +1,10 @@
+/*
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:27:47
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 11:39:45
+ * @Description: file content
+ */
 const Mock = require('mockjs')
 const { param2Obj } = require('./utils')
 
@@ -18,7 +25,6 @@ const mocks = [
 // which will cause many of your third-party libraries to be invalidated(like progress event).
 function mockXHR() {
   // mock patch
-  // https://github.com/nuysoft/Mock/issues/300
   Mock.XHR.prototype.proxy_send = Mock.XHR.prototype.send
   Mock.XHR.prototype.send = function() {
     if (this.custom.xhr) {

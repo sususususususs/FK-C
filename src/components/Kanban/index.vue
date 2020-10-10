@@ -1,3 +1,10 @@
+<!--
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:21
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 11:38:31
+ * @Description: file content
+-->
 <template>
   <div class="board-column">
     <div class="board-column-header">
@@ -45,7 +52,6 @@ export default {
   methods: {
     setData(dataTransfer) {
       // to avoid Firefox bug
-      // Detail see : https://github.com/RubaXa/Sortable/issues/1012
       dataTransfer.setData('Text', '')
     }
   }

@@ -1,10 +1,14 @@
+<!--
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:21
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 11:40:13
+ * @Description: file content
+-->
 <template>
   <div class="components-container">
-    <aside>Json-Editor is base on <a href="https://github.com/codemirror/CodeMirror" target="_blank">CodeMirrorr</a>. Lint
-      base on <a
-        href="https://github.com/codemirror/CodeMirror/blob/master/addon/lint/json-lint.js"
-        target="_blank"
-      >json-lint</a>.</aside>
+    <aside>Json-Editor is base on . Lint
+      base on .</aside>
     <div class="editor-container">
       <json-editor ref="jsonEditor" v-model="value" />
     </div>

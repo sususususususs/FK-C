@@ -2,7 +2,7 @@
  * @Author: suwanqing
  * @Date: 2020-09-30 16:31:22
  * @LastEditors: suwanqing
- * @LastEditTime: 2020-10-10 11:31:34
+ * @LastEditTime: 2020-10-10 11:38:50
  * @Description: file content
 -->
 <template>
@@ -25,12 +25,12 @@ export default {
       timeline: [
         {
           timestamp: '2019/4/20',
-          title: 'Update Github template',
+          title: 'Update template',
           content: 'committed 2019/4/20 20:46'
         },
         {
           timestamp: '2019/4/21',
-          title: 'Update Github template',
+          title: 'Update template',
           content: 'committed 2019/4/21 20:46'
         },
         {

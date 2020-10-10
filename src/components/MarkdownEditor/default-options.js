@@ -1,4 +1,11 @@
-// doc: https://nhnent.github.io/tui.editor/api/latest/ToastUIEditor.html#ToastUIEditor
+/*
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:21
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 11:37:44
+ * @Description: file content
+ */
+
 export default {
   minHeight: '200px',
   previewStyle: 'vertical',

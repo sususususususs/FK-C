@@ -97,7 +97,6 @@ export default {
     },
     setData(dataTransfer) {
       // to avoid Firefox bug
-      // Detail see : https://github.com/RubaXa/Sortable/issues/1012
       dataTransfer.setData('Text', '')
     }
   }
