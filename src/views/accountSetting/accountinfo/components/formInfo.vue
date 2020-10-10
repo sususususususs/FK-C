@@ -2,7 +2,7 @@
  * @Author: suwanqing
  * @Date: 2020-10-09 17:35:38
  * @LastEditors: suwanqing
- * @LastEditTime: 2020-10-09 18:19:31
+ * @LastEditTime: 2020-10-10 10:06:11
  * @Description: file content
 -->
 <template>
@@ -43,6 +43,13 @@ export default {
 
 ::v-deep .el-card__body {
   padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+::v-deep .el-row {
+  width: 100%;
 }
 
 </style>

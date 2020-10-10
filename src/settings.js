@@ -1,5 +1,12 @@
+/*
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:20
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 10:24:25
+ * @Description: file content
+ */
 module.exports = {
-  title: 'Vue Element Admin',
+  title: 'FK',
 
   /**
    * @type {boolean} true | false

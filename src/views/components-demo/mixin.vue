@@ -7,9 +7,9 @@
         </div>
         <div style="margin-bottom:50px;">
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn blue-btn" to="/documentation/index">
-              Documentation
-            </router-link>
+            Documentation
+            <!-- <router-link class="pan-btn blue-btn" to="/documentation/index">
+            </router-link> -->
           </el-col>
           <el-col :span="4" class="text-center">
             <router-link class="pan-btn light-blue-btn" to="/icon/index">
@@ -32,9 +32,7 @@
             </router-link>
           </el-col>
           <el-col :span="4" class="text-center">
-            <router-link class="pan-btn yellow-btn" to="/theme/index">
-              Theme
-            </router-link>
+            Theme
           </el-col>
         </div>
       </el-card>
