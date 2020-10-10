@@ -1,3 +1,10 @@
+/*
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:21
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 11:29:40
+ * @Description: file content
+ */
 import { debounce } from '@/utils'
 
 export default {
@@ -20,8 +27,6 @@ export default {
     this.$_destroyResizeEvent()
     this.$_destroySidebarResizeEvent()
   },
-  // to fixed bug when cached by keep-alive
-  // https://github.com/PanJiaChen/vue-element-admin/issues/2116
   activated() {
     this.$_initResizeEvent()
     this.$_initSidebarResizeEvent()

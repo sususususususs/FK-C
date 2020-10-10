@@ -1,3 +1,10 @@
+<!--
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:20
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 11:30:00
+ * @Description: file content
+-->
 <template>
   <el-breadcrumb class="app-breadcrumb" separator="/">
     <transition-group name="breadcrumb">
@@ -50,7 +57,6 @@ export default {
       return name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
     },
     pathCompile(path) {
-      // To solve this problem https://github.com/PanJiaChen/vue-element-admin/issues/561
       const { params } = this.$route
       var toPath = pathToRegexp.compile(path)
       return toPath(params)

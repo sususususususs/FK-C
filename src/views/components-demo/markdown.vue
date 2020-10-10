@@ -1,12 +1,13 @@
+<!--
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:21
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 11:33:03
+ * @Description: file content
+-->
 <template>
   <div class="components-container">
-    <aside>Markdown is based on
-      <a href="https://github.com/nhnent/tui.editor" target="_blank">tui.editor</a> ，simply wrapped with Vue.
-      <a
-        target="_blank"
-        href="https://panjiachen.github.io/vue-element-admin-site/feature/component/markdown-editor.html"
-      >
-        Documentation </a>
+    <aside>Markdown is based on ，simply wrapped with Vue.
     </aside>
 
     <div class="editor-container">

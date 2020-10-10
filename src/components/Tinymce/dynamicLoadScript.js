@@ -1,7 +1,13 @@
+/*
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:21
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 11:28:59
+ * @Description: file content
+ */
 let callbacks = []
 
 function loadedTinymce() {
-  // to fixed https://github.com/PanJiaChen/vue-element-admin/issues/2144
   // check is successfully downloaded script
   return window.tinymce
 }

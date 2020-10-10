@@ -1,3 +1,10 @@
+/*
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:21
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 11:30:44
+ * @Description: file content
+ */
 export default {
   computed: {
     device() {
@@ -6,7 +13,6 @@ export default {
   },
   mounted() {
     // In order to fix the click on menu on the ios device will trigger the mouseleave bug
-    // https://github.com/PanJiaChen/vue-element-admin/issues/1135
     this.fixBugIniOS()
   },
   methods: {

@@ -1,9 +1,12 @@
+<!--
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:22
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 11:33:21
+ * @Description: file content
+-->
 <template>
   <div class="icons-container">
-    <aside>
-      <a href="https://panjiachen.github.io/vue-element-admin-site/guide/advanced/icon.html" target="_blank">Add and use
-      </a>
-    </aside>
     <el-tabs type="border-card">
       <el-tab-pane label="Icons">
         <div class="grid">

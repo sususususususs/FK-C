@@ -1,3 +1,10 @@
+/*
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:20
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 11:30:58
+ * @Description: file content
+ */
 import router from './router'
 import store from './store'
 import { Message } from 'element-ui'
@@ -24,7 +31,7 @@ router.beforeEach(async(to, from, next) => {
     if (to.path === '/login') {
       // if is logged in, redirect to the home page
       next({ path: '/' })
-      NProgress.done() // hack: https://github.com/PanJiaChen/vue-element-admin/pull/2939
+      NProgress.done()
     } else {
       // determine whether the user has obtained his permission roles through getInfo
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
