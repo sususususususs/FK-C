@@ -1,3 +1,10 @@
+/*
+ * @Author: suwanqing
+ * @Date: 2020-09-30 16:31:21
+ * @LastEditors: suwanqing
+ * @LastEditTime: 2020-10-10 13:47:57
+ * @Description: file content
+ */
 /** When your routing table is too long, you can split it into small modules **/
 
 import Layout from '@/layout'
@@ -12,24 +19,12 @@ const componentsRouter = {
     icon: 'component'
   },
   children: [
-    // {
-    //   path: 'tinymce',
-    //   component: () => import('@/views/components-demo/tinymce'),
-    //   name: 'TinymceDemo',
-    //   meta: { title: 'Tinymce' }
-    // },
     {
       path: 'markdown',
       component: () => import('@/views/components-demo/markdown'),
       name: 'MarkdownDemo',
       meta: { title: 'Markdown' }
     },
-    // {
-    //   path: 'json-editor',
-    //   component: () => import('@/views/components-demo/json-editor'),
-    //   name: 'JsonEditorDemo',
-    //   meta: { title: 'JSON Editor' }
-    // },
     {
       path: 'split-pane',
       component: () => import('@/views/components-demo/split-pane'),
@@ -66,36 +61,6 @@ const componentsRouter = {
       name: 'ComponentMixinDemo',
       meta: { title: 'Component Mixin' }
     }
-    // {
-    //   path: 'back-to-top',
-    //   component: () => import('@/views/components-demo/back-to-top'),
-    //   name: 'BackToTopDemo',
-    //   meta: { title: 'Back To Top' }
-    // }
-    // {
-    //   path: 'drag-dialog',
-    //   component: () => import('@/views/components-demo/drag-dialog'),
-    //   name: 'DragDialogDemo',
-    //   meta: { title: 'Drag Dialog' }
-    // },
-    // {
-    //   path: 'drag-select',
-    //   component: () => import('@/views/components-demo/drag-select'),
-    //   name: 'DragSelectDemo',
-    //   meta: { title: 'Drag Select' }
-    // },
-    // {
-    //   path: 'dnd-list',
-    //   component: () => import('@/views/components-demo/dnd-list'),
-    //   name: 'DndListDemo',
-    //   meta: { title: 'Dnd List' }
-    // },
-    // {
-    //   path: 'drag-kanban',
-    //   component: () => import('@/views/components-demo/drag-kanban'),
-    //   name: 'DragKanbanDemo',
-    //   meta: { title: 'Drag Kanban' }
-    // }
   ]
 }
 
