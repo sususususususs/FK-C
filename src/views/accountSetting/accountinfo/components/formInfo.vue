@@ -2,30 +2,41 @@
  * @Author: suwanqing
  * @Date: 2020-10-09 17:35:38
  * @LastEditors: suwanqing
- * @LastEditTime: 2020-10-10 10:06:11
+ * @LastEditTime: 2020-10-29 15:21:23
  * @Description: file content
 -->
 <template>
-  <el-card shadow="always">
-    <div slot="header" class="flex-spacebet">
+  <el-card shadow="always" class="p-0-20 min-h-406">
+    <div class="flex-spacebet-center h-50 line-h-50 border-b">
       <span class="content-T font-md">{{ title }}</span>
-      <el-link class="content-E font-sm" :underline="false"><i class="el-icon-edit" />修改</el-link>
+      <span class="font-sm edit" @click="$refs.editDialog.visible(title)"><i class="el-icon-edit" />修改</span>
     </div>
-    <el-avatar icon="el-icon-user-solid" />
-    <el-row class="mt-30">
-      <el-col class="content-T font-md" :span="8">联系电话</el-col>
-      <el-col class="content-F font-md" :span="16">66666666666</el-col>
-    </el-row>
+    <div class="p-20-40-30 flex align-center flex-dir-col">
+      <el-avatar icon="el-icon-user-solid" />
+      <el-row v-for="v in label" :key="v.label" class="mt-28 w100">
+        <el-col class="content-F font-md" :span="8">{{ v.label }}</el-col>
+        <el-col class="content-T font-md" :span="16">{{ '--' }}</el-col>
+      </el-row>
+    </div>
+    <editDialog ref="editDialog" />
   </el-card>
 </template>
 
 <script>
+import editDialog from './editDialog.vue'
 export default {
+  components: { editDialog },
   props: {
     title: {
       type: String,
       default() {
         return ''
+      }
+    },
+    label: {
+      type: Array,
+      default() {
+        return []
       }
     }
   }
@@ -33,23 +44,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-::v-deep .el-card__header {
-  border-bottom-color: #f1f1f1;
-  padding: 0 20px;
-  height: 50px;
-  line-height: 50px;
+.border-b {
+  border-bottom: 1px solid #f1f1f1;
 }
-
-::v-deep .el-card__body {
-  padding: 30px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.p-20-40-30 {
+  padding: 20px 40px 30px;
 }
-
-::v-deep .el-row {
-  width: 100%;
+.min-h-406 {
+  min-height: 406px;
 }
-
 </style>

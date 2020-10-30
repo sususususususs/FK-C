@@ -1,9 +1,8 @@
 @import './variables.scss';
-@import './mixin.scss';
 @import './transition.scss';
 @import './element-ui.scss';
+@import './mixin.scss';
 @import './sidebar.scss';
-@import './btn.scss';
 @import './instance.scss';
 @import './font.scss';
 
@@ -35,14 +34,6 @@ html {
   box-sizing: inherit;
 }
 
-.no-padding {
-  padding: 0px !important;
-}
-
-.padding-content {
-  padding: 4px 0;
-}
-
 a:focus,
 a:active {
   outline: none;
@@ -56,28 +47,18 @@ a:hover {
   text-decoration: none;
 }
 
-p {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
 div:focus {
   outline: none;
-}
-
-.fr {
-  float: right;
-}
-
-.fl {
-  float: left;
-}
-
-.pr-5 {
-  padding-right: 5px;
-}
-
-.pl-5 {
-  padding-left: 5px;
 }
 
 .block {
@@ -86,10 +67,6 @@ div:focus {
 
 .pointer {
   cursor: pointer;
-}
-
-.inlineBlock {
-  display: block;
 }
 
 .clearfix {
@@ -101,6 +78,36 @@ div:focus {
     clear: both;
     height: 0;
   }
+}
+
+.flex {
+  display: flex;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.shrink {
+  flex-shrink: 0;
+}
+
+.line-height {
+  line-height: normal;
+}
+
+.pos-rel {
+  position: relative;
 }
 
 aside {
@@ -141,10 +148,6 @@ aside {
 
 .pagination-container {
   margin-top: 30px;
-}
-
-.text-center {
-  text-align: center
 }
 
 .sub-navbar {

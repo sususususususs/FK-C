@@ -2,13 +2,13 @@
  * @Author: suwanqing
  * @Date: 2020-09-30 16:31:21
  * @LastEditors: suwanqing
- * @LastEditTime: 2020-10-09 17:16:50
+ * @LastEditTime: 2020-10-28 14:46:17
  * @Description: file content
 -->
 <template>
-  <div class="dashboard-editor-container">
+  <div class="pos-rel">
 
-    <div class="dashboard-usually">常用功能</div>
+    <div class="p-5-10 bold font-md blue_flag">常用功能</div>
 
     <el-row v-for="v in rows" :key="v" :gutter="20" class="mt-20">
       <el-col v-for="item in cardArr.slice((v - 1) * 4, 4 * v)" :key="item.title" :span="6">
@@ -16,7 +16,7 @@
       </el-col>
     </el-row>
 
-    <div class="dashboard-usually mt-20">未开通功能</div>
+    <div class="p-5-10 bold font-md blue_flag mt-20">未开通功能</div>
 
     <el-row :gutter="20" class="mt-20">
       <el-col :span="6">
@@ -24,7 +24,7 @@
       </el-col>
     </el-row>
 
-    <div class="dashboard-usually mt-20">精选推荐</div>
+    <div class="p-5-10 bold font-md blue_flag mt-20">精选推荐</div>
 
     <el-row :gutter="20" class="mt-20">
       <el-col :span="6">
@@ -134,15 +134,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.dashboard-editor-container {
-  position: relative;
-}
-.dashboard-usually {
-  padding: 5px 10px;
-  font-size: 14px;
-  font-weight: 700;
-  border-left: 3px solid #36a3f7;
-}
-</style>

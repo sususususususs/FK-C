@@ -1,3 +1,7 @@
+$justify-content: (start: start, end: end, center: center, spacebet: space-between, spacearo: space-around);
+$align-items: start, end, center, baseline, stretch;
+$flex-direction: (row: row, row-re: row-reverse, col: column, col-re: column-reverse);
+
 @mixin clearfix {
   &:after {
     content: "";
@@ -27,40 +31,124 @@
   height: 100%;
 }
 
-@mixin pct($pct) {
-  width: #{$pct};
-  position: relative;
-  margin: 0 auto;
+@each $name, $val in $justify-content {
+
+  .flex-#{$name} {
+    display: flex;
+    justify-content: $val;
+  }
+
+  @each $name2 in $align-items {
+    .flex-#{$name}-#{$name2} {
+      display: flex;
+      justify-content: $val;
+      align-items: $name2;
+    }
+  }
+
 }
 
-@mixin triangle($width, $height, $color, $direction) {
-  $width: $width/2;
-  $color-border-style: $height solid $color;
-  $transparent-border-style: $width solid transparent;
-  height: 0;
-  width: 0;
+@each $name in $align-items {
+  .align-#{$name} {
+    align-items: $name;
+  }
+}
 
-  @if $direction==up {
-    border-bottom: $color-border-style;
-    border-left: $transparent-border-style;
-    border-right: $transparent-border-style;
+@each $name, $val in $flex-direction {
+  .flex-dir-#{$name} {
+    flex-direction: $val;
+  }
+}
+
+@each $name in center, left, right {
+  .text-#{$name} {
+    text-align: $name;
+  }
+}
+
+@for $index from 0 through 100 {
+
+  .mt-#{$index} {
+    margin-top: #{$index}px;
   }
 
-  @else if $direction==right {
-    border-left: $color-border-style;
-    border-top: $transparent-border-style;
-    border-bottom: $transparent-border-style;
+  .mb-#{$index} {
+    margin-bottom: #{$index}px !important;
   }
 
-  @else if $direction==down {
-    border-top: $color-border-style;
-    border-left: $transparent-border-style;
-    border-right: $transparent-border-style;
+  .ml-#{$index} {
+    margin-left: #{$index}px;
   }
 
-  @else if $direction==left {
-    border-right: $color-border-style;
-    border-top: $transparent-border-style;
-    border-bottom: $transparent-border-style;
+  .mr-#{$index} {
+    margin-right: #{$index}px;
   }
+
+  // margin
+
+  .m-#{$index} {
+    margin: #{$index}px;
+  }
+
+  // padding
+
+  .pt-#{$index} {
+    padding-top: #{$index}px;
+  }
+
+  .pb-#{$index} {
+    padding-bottom: #{$index}px;
+  }
+
+  .pl-#{$index} {
+    padding-left: #{$index}px;
+  }
+
+  .pr-#{$index} {
+    padding-right: #{$index}px;
+  }
+
+  // padding
+
+  .p-#{$index} {
+    padding: #{$index}px;
+  }
+
+  @for $index2 from 0 through 100 {
+    
+    .m-#{$index}-#{$index2} {
+      margin: #{$index}px #{$index2}px;
+    }
+
+    .p-#{$index}-#{$index2} {
+      padding: #{$index}px #{$index2}px;
+    }
+  }
+
+  // line-height
+
+  .line-h-#{$index} {
+    line-height: #{$index}px;
+  }
+
+  // width
+
+  .w#{$index} {
+    width: #{$index}#{'%'};
+  }
+
+  .w-#{$index} {
+    width: #{$index}px
+  }
+
+  // height
+
+  .h#{$index} {
+    height: #{$index}#{'%'};
+  }
+
+  .h-#{$index} {
+    height: #{$index}px;
+  }
+
 }

@@ -6,7 +6,7 @@
   width: 100%;
   right: 0;
   height: 60px;
-  z-index: 9999;
+  z-index: 99;
 }
 
 .el-main {
@@ -77,6 +77,15 @@
   left: 0;
   position: relative;
   margin: 0 auto;
+  &__header {
+    padding: 0;
+  }
+  &__body {
+    padding: 0;
+  }
+  &__footer{
+    padding: 0;
+  }
 }
 
 // refine element ui upload
@@ -107,3 +116,55 @@
 .el-range-separator {
   box-sizing: content-box;
 }
+
+// form
+.el-form-item--mini.el-form-item {
+  margin-bottom: 0;
+}
+
+.el-form--inline {
+  .el-form-item {
+    margin-right: 0;
+  }
+}
+
+.el-form-item--mini {
+  .el-form-item__label {
+    font-size: 12px;
+    color: hsl(240, 7%, 59%);
+  }
+}
+
+.el-form--label-top {
+  .el-form-item__label {
+    padding: 0 0 2px 0;
+  }
+}
+
+// table
+
+.el-table__expanded-cell[class*=cell] {
+  padding: 0;
+  background: #f6f9ff;
+  padding-left: 65px;
+  min-height: 50px;
+  box-shadow: 0 2px 7px 0 rgba(197, 197, 197, 0.34);
+}
+
+.el-table__expanded-cell:hover {
+  background: #f6f9ff !important;
+}
+
+.el-table::before, .el-table--group::after, .el-table--border::after {
+  background: transparent;
+}
+
+.expanded {
+  td {
+    border-bottom: 0;
+  }
+}
+td.el-table__expanded-cell {
+  border-bottom: 0;
+}
+

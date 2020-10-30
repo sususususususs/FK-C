@@ -1,34 +1,42 @@
-$title: #333;
+$title: #333333;
 $edit: #626262;
-$borderline: #f1f1f1;
 $formInfo: #90909e;
+$title8: #888888;
+$account: #4e4e4e;
+$content-blue: #0157ff;
 
-.font-sm {
-  font-size: 12px;
-}
+$list: (xs: 10, sm: 12, md: 14, lg: 16, xl: 18);
 
-.font-md {
-  font-size: 14px;
-}
-
-.font-lg {
-  font-size: 18px;
+@each $name, $size in $list {
+  .font-#{$name} {
+    font-size: #{$size}px;
+  }
 }
 
 .content-T {
-  color: $title !important;
+  color: $title;
 }
 
 .content-E {
-  color: $edit !important;
+  color: $edit;
 }
 
 .content-F {
-  color: $formInfo !important;
+  color: $formInfo;
+}
+
+.content-8 {
+  color: $title8;
+}
+
+.content-blue {
+  color: $content-blue;
+}
+
+.content-4e {
+  color: $account;
 }
 
 .bold {
   font-weight: 700;
 }
-
-
