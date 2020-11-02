@@ -2,7 +2,7 @@
  * @Author: suwanqing
  * @Date: 2020-10-10 10:07:11
  * @LastEditors: suwanqing
- * @LastEditTime: 2020-10-29 15:32:23
+ * @LastEditTime: 2020-11-02 14:09:11
  * @Description: file content
 -->
 <template>
@@ -183,7 +183,8 @@ export default {
 <style lang="scss" scoped>
 ::v-deep .el-dialog {
   padding: 30px 105px;
-  box-shadow: 0 0 7px 0 rgba(197,197,197, 0.34);
+  // box-shadow: 0 0 7px 0 rgba(197,197,197, 0.34);
+  box-shadow: 0 0 50px 0 rgba(1, 87, 255, .14);
 }
 ::v-deep .el-input__inner {
   border-radius: 0;

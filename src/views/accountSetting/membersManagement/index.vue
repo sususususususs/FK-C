@@ -2,69 +2,9 @@
  * @Author: suwanqing
  * @Date: 2020-09-30 17:46:04
  * @LastEditors: suwanqing
- * @LastEditTime: 2020-10-30 18:16:39
+ * @LastEditTime: 2020-11-02 18:12:42
  * @Description: file content
 -->
-<template>
-  <el-card>
-    <div class="flex-spacebet-center p-0-40 h-80 bg">
-      <div class="flex-start-center">
-        <div class="font-md nowrap pr-50">
-          <span class="content-4e pr-10">当前账号</span>
-          <span class="content-blue">{{ '吃你家大米了？' }}</span>
-        </div>
-        <el-input v-model="search" placeholder="请输入账号" size="mini">
-          <el-button slot="suffix" icon="el-icon-search" type="primary" circle />
-        </el-input>
-      </div>
-      <el-button type="primary" icon="el-icon-edit" circle />
-    </div>
-    <div class="p-20-30">
-      <el-table
-        :data="data"
-      >
-        <!-- <el-table-column
-          v-for="v in tableHeader"
-          :key="v.label"
-          :label="v.label"
-          :prop="v.prop"
-          align="center"
-          :type="v.type"
-        >
-          <template v-if="v.render" slot-scope="props">
-          </template>
-          <template v-else-if="v[render-Header]" slot="header">操作</template>
-        </el-table-column> -->
-        <el-table-column
-          v-for="v in tableHeader"
-          :key="v.label"
-          :label="v.label"
-          :prop="v.prop"
-          align="center"
-        />
-        <template slot-scope="scope">
-          <i v-if="scope.status" class="el-icon-check" />
-          <i v-else class="el-icon-close" />
-        </template>
-        <el-table-column type="expand">
-          <template slot="header">操作</template>
-          <!-- <template slot-scope="scope">
-            <i class="el-icon-warning-outline" />
-            <i class="el-icon-edit-outline" />
-          </template> -->
-          <template slot-scope="props">
-            <div class="flex-spacebet-center">
-              <div v-for="item in moreHeader" :key="item.label" class="content-F font-xs text-left h-50 line-h-50 ellipsis">
-                <span>{{ item.label }}：</span>
-                <span class="content-4e ellipsis">{{ props.row[item.prop] || '--' }}</span>
-              </div>
-            </div>
-          </template>
-        </el-table-column>
-      </el-table>
-    </div>
-  </el-card>
-</template>
 
 <script>
 export default {
@@ -94,38 +34,46 @@ export default {
         },
         {
           label: '管理员',
-          prop: 'admin'
+          prop: 'admin',
+          render: {
+            default: props => {
+              return props.row.admin ? <i class='content-blue el-icon-check' /> : <i class='el-icon-close' />
+            }
+          }
         },
         {
           label: '状态',
           prop: 'status',
           render: {
             default: props => {
-              if (props.row.status) {
-                return (
-                  <i class='el-icon-check' />
-                )
-              } else {
-                return (
-                  <i class='el-icon-close' />
-                )
-              }
+              return props.row.status ? <i class='content-blue el-icon-check' /> : <i class='el-icon-close' />
             }
           }
         },
         {
           label: '操作',
-          type: 'expand',
-          'render-Header': (h) => (
-            <div>操作</div>
-          ),
           render: {
-            default: props => (
-              <div>
-                <i class='el-icon-check' />
-                <i class='el-icon-close' />
-              </div>
-            )
+            default: props => {
+              return <i class='el-icon-edit-outline' />
+            }
+          }
+        },
+        {
+          type: 'expand',
+          render: {
+            default: props => {
+              const inner = this.moreHeader.map(item => {
+                return (
+                  <el-col span={8} class='content-F font-xs text-left h-50 line-h-50 ellipsis'>
+                    <span>{item.label}：</span>
+                    <span class='content-4e ellipsis'>{props.row[item.prop] || '--'}</span>
+                  </el-col>
+                )
+              })
+              return (
+                <el-row gutter={10}>{inner}</el-row>
+              )
+            }
           }
         }
       ],
@@ -169,6 +117,53 @@ export default {
         other: '雨女无瓜'
       }]
     }
+  },
+  render() {
+    return (
+      <el-card>
+        <div class='flex-spacebet-center p-0-40 h-80 bg'>
+          <div class='flex-start-center'>
+            <div class='font-md nowrap pr-50'>
+              <span class='content-4e pr-10'>当前账号</span>
+              <span class='content-blue'>{ '吃你家大米了？？？要你寡！' }</span>
+            </div>
+            <el-input size='mini' placeholder='请输入账号' v-model={this.search}>
+              <el-button slot='suffix' icon='el-icon-search' type='primary' circle />
+            </el-input>
+          </div>
+          <el-button type='primary' icon='el-icon-edit' circle />
+        </div>
+        <div class='p-20-30'>
+          <el-table
+            data={this.data}
+            size='mini'
+          >
+            {
+              this.tableHeader.map((item) => {
+                return (<el-table-column
+                  key={item.key}
+                  label={item.label}
+                  prop={item.prop}
+                  align='center'
+                  type={item.type}
+                  {...{ scopedSlots: item.render }}
+                  // {
+                  //   ...{
+                  //     scopedSlots: {
+                  //       default: props => {
+                  //         console.log(props)
+                  //         return props.row.status ? <i class='el-icon-check' /> : <i class='el-icon-close' />
+                  //       }
+                  //     }
+                  //   }
+                  // }
+                />)
+              })
+            }
+          </el-table>
+        </div>
+      </el-card>
+    )
   }
 }
 </script>
