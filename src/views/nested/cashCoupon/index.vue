@@ -2,7 +2,7 @@
  * @Author: suwanqing
  * @Date: 2020-09-30 17:30:31
  * @LastEditors: suwanqing
- * @LastEditTime: 2020-10-10 15:42:55
+ * @LastEditTime: 2020-11-05 15:24:04
  * @Description: file content
 -->
 <template>
@@ -32,9 +32,7 @@
         <el-switch v-model="formInline.overDate" />
       </el-form-item>
       <el-form-item prop="num">
-        <el-input v-model="formInline.num" placeholder="请输入现金券激活码">
-          <el-button slot="suffix" type="primary" round>激活</el-button>
-        </el-input>
+        <searchComponents :icon="false" :disabled="true" @input="handleInput" />
       </el-form-item>
     </el-form>
     <div>???</div>
@@ -42,7 +40,9 @@
 </template>
 
 <script>
+import searchComponents from '@/components/SearchInput'
 export default {
+  components: { searchComponents },
   data() {
     return {
       canUse: [
@@ -83,6 +83,11 @@ export default {
         overDate: false,
         num: ''
       }
+    }
+  },
+  methods: {
+    handleInput(value) {
+      this.formInline.num = value
     }
   }
 }

@@ -37,8 +37,24 @@ $text: #626262;
   @include btn(70px, 28px, 14px, $text, background-color);
 }
 
+%border {
+  border: 1px solid $themeBlue;
+}
+
 .formbtn {
   @include btn(100%, 35px, 2px, $themeBlue, all);
+  @extend %border;
   font-size: 16px;
-  border: 1px solid $themeBlue;
+}
+
+.submit-btn {
+  @include btn(45%, 35px, 2px, $themeBlue, all);
+  font-size: 16px;
+  @extend %border;
+}
+
+.cancel-btn {
+  @include btn(45%, 35px, 2px, #90909e, all);
+  font-size: 16px;
+  border: 1px solid #dadada;
 }

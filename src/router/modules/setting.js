@@ -2,7 +2,7 @@
  * @Author: suwanqing
  * @Date: 2020-09-30 16:31:21
  * @LastEditors: suwanqing
- * @LastEditTime: 2020-09-30 17:53:56
+ * @LastEditTime: 2020-11-05 17:33:18
  * @Description: file content
  */
 
@@ -14,7 +14,7 @@ const settingRouter = {
   redirect: '/accountSetting/accountinfo/index',
   name: 'AccountSetting',
   meta: {
-    title: '账号设置',
+    title: '设置',
     icon: 'el-icon-setting'
   },
   children: [

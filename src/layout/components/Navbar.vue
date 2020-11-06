@@ -1,34 +1,32 @@
 <template>
   <div class="navbar">
-    <!-- <hamburger id="hamburger-container" :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
-
-    <breadcrumb id="breadcrumb-container" class="breadcrumb-container" /> -->
-
     <div class="right-menu">
-      <template v-if="device!=='mobile'">
-        <el-tooltip v-for="v in rightList" :key="v.icon" class="item" effect="dark" :content="v.content" placement="bottom">
-          <i :class="v.icon + ' my-icon'" />
-        </el-tooltip>
-      </template>
+      <el-popover v-for="v in rightList" :key="v.icon" placement="bottom" trigger="hover">
+        <el-row>
+          <el-col v-for="item in 3" :key="item" :span="8">{{ item }}</el-col>
+        </el-row>
+        <i slot="reference" :class="v.icon" />
+      </el-popover>
 
-      <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
-        <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
-          <i class="el-icon-caret-bottom" />
-        </div>
+      <el-dropdown class="avatar-container right-menu-item hover-effect line-h-60">
+        <span class="el-dropdown-link">
+          <i class="el-icon-user my-icon" />
+          <i class="el-icon-arrow-down el-icon--right" />
+        </span>
         <el-dropdown-menu slot="dropdown">
-          <router-link to="/accountSetting/membersManagement">
-            <el-dropdown-item>成员管理</el-dropdown-item>
-          </router-link>
-          <router-link to="/nested/orderManagement">
-            <el-dropdown-item>我的订单</el-dropdown-item>
-          </router-link>
-          <router-link to="/nested/cashCoupon">
-            <el-dropdown-item>现金券</el-dropdown-item>
-          </router-link>
-          <el-dropdown-item divided @click.native="logout">
-            <span style="display:block;">Log Out</span>
-          </el-dropdown-item>
+          <div class="flex-spacebet-center p-21-25 h-82 pointer border-b">
+            <div class="w-120">
+              <p class="line-h-20 font-15 content-T ellipsis">{{ 'bilibili' }}</p>
+              <p class="line-h-16 font-sm content-9 ellipsis mt-3">{{ 'boss' }}</p>
+            </div>
+            <el-avatar icon="el-icon-user-solid" />
+          </div>
+          <div class="border-b p-8-0 font-md border-b w100">
+            <router-link v-for="v in routeList" :key="v.label" :to="v.path">
+              <el-dropdown-item><i :class="v.icon" />{{ v.label }}</el-dropdown-item>
+            </router-link>
+          </div>
+          <div class="h-48 p-0-25 line-h-48 text-right pointer font-md content-T" @click.native="logout">LOG OUT</div>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -37,12 +35,6 @@
 
 <script>
 import { mapGetters } from 'vuex'
-// import Breadcrumb from '@/components/Breadcrumb'
-// import Hamburger from '@/components/Hamburger'
-// import Screenfull from '@/components/Screenfull'
-// import SizeSelect from '@/components/SizeSelect'
-// import ErrorLog from '@/components/ErrorLog'
-// import Search from '@/components/HeaderSearch'
 
 export default {
   data() {
@@ -59,10 +51,23 @@ export default {
         {
           icon: 'el-icon-s-shop',
           content: '营销市场'
+        }
+      ],
+      routeList: [
+        {
+          label: 'MEMBERS',
+          path: '/accountSetting/membersManagement',
+          icon: 'el-icon-s-opportunity'
         },
         {
-          icon: 'el-icon-user',
-          content: '个人中心'
+          label: 'MYOPDER',
+          path: '/nested/orderManagement',
+          icon: 'el-icon-s-order'
+        },
+        {
+          label: 'CASH',
+          path: '/nested/cashCoupon',
+          icon: 'el-icon-s-ticket'
         }
       ]
     }
@@ -92,7 +97,6 @@ export default {
   overflow: hidden;
   position: relative;
   background: #fff;
-  // box-shadow: 0 1px 4px rgba(0,21,41,.08);
   border-bottom: 1px solid #ccc;
 
   .hamburger-container {
@@ -120,6 +124,26 @@ export default {
 
     &:focus {
       outline: none;
+    }
+
+    span {
+      height: 36px;
+      width: 36px;
+      line-height: 36px;
+      text-align: center;
+      font-size: 18px;
+      cursor: pointer;
+      margin-right: 10px;
+
+      &:hover {
+        color: #0076FE;
+        border-radius: 50%;
+        font-weight: 700;
+        background: #ebf2fe;
+        transition: background .3s;
+        transition: color .3s;
+        transition: font-weight .3s;
+      }
     }
 
     .right-menu-item {
@@ -172,5 +196,14 @@ export default {
     font-size: 25px;
     margin-right: 20px;
   }
+}
+.border-b {
+  border-bottom: 1px solid #eceff6;
+}
+.w-120 {
+  width: 120px;
+}
+.font-15 {
+  font-size: 15px;
 }
 </style>

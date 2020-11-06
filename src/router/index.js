@@ -74,7 +74,7 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: '管理中心', icon: 'component', affix: true }
+        meta: { title: '数据总览', icon: 'el-icon-data-line', affix: true }
       }
     ]
   },
@@ -100,6 +100,62 @@ export const constantRoutes = [
  */
 export const asyncRoutes = [
   nestedRouter,
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/orderManagement',
+    name: 'orderManagement',
+    children: [
+      {
+        path: 'orderManagement',
+        name: 'orderManagement',
+        component: () => import('@/views/orderManagement/index'),
+        meta: { title: '订单管理', icon: 'skill', affix: true }
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/vip',
+    name: 'vip',
+    children: [
+      {
+        path: 'vip',
+        name: 'vip',
+        component: () => import('@/views/vip/index'),
+        meta: { title: '会员信息', icon: 'component', affix: true }
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/shop',
+    name: 'shop',
+    children: [
+      {
+        path: 'shop',
+        name: 'shop',
+        component: () => import('@/views/shop/index'),
+        meta: { title: '我的店铺', icon: 'el-icon-house', affix: true }
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/statics',
+    name: 'statisc',
+    children: [
+      {
+        path: 'statics',
+        name: 'statics',
+        component: () => import('@/views/statics/index'),
+        meta: { title: '统计', icon: 'el-icon-pie-chart', affix: true }
+      }
+    ]
+  },
   settingRouter,
   {
     path: '/permission',

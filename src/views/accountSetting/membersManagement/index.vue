@@ -2,12 +2,16 @@
  * @Author: suwanqing
  * @Date: 2020-09-30 17:46:04
  * @LastEditors: suwanqing
- * @LastEditTime: 2020-11-02 18:12:42
+ * @LastEditTime: 2020-11-03 17:08:32
  * @Description: file content
 -->
 
 <script>
+import formDialog from './components/newForm'
+import searchComponents from '@/components/SearchInput'
 export default {
+  name: 'MembersManagement',
+  components: { formDialog, searchComponents },
   data() {
     return {
       search: '',
@@ -54,7 +58,7 @@ export default {
           label: '操作',
           render: {
             default: props => {
-              return <i class='el-icon-edit-outline' />
+              return <i onClick={this.visible} class='pointer el-icon-edit-outline' />
             }
           }
         },
@@ -118,6 +122,14 @@ export default {
       }]
     }
   },
+  methods: {
+    visible() {
+      this.$refs.formDialog.visible()
+    },
+    formInput(params) {
+      this.search = params
+    }
+  },
   render() {
     return (
       <el-card>
@@ -127,11 +139,9 @@ export default {
               <span class='content-4e pr-10'>当前账号</span>
               <span class='content-blue'>{ '吃你家大米了？？？要你寡！' }</span>
             </div>
-            <el-input size='mini' placeholder='请输入账号' v-model={this.search}>
-              <el-button slot='suffix' icon='el-icon-search' type='primary' circle />
-            </el-input>
+            <searchComponents onInput={this.formInput} />
           </div>
-          <el-button type='primary' icon='el-icon-edit' circle />
+          <el-button type='primary' icon='el-icon-edit' circle onClick={this.visible} />
         </div>
         <div class='p-20-30'>
           <el-table
@@ -162,6 +172,7 @@ export default {
             }
           </el-table>
         </div>
+        <formDialog ref='formDialog' />
       </el-card>
     )
   }
@@ -172,19 +183,7 @@ export default {
 .bg {
   background: #f6f9ff;
 }
-::v-deep .el-input {
+::v-deep .el-input--suffix {
   width: 320px;
-}
-::v-deep .el-input__inner {
-  height: 40px;
-  line-height: 40px;
-  border-radius: 20px;
-  background: #fff;
-  border: 1px solid #eaeaea;
-  padding-left: 12px;
-  color: #333;
-}
-::v-deep .el-input__suffix {
-  line-height: 40px;
 }
 </style>
